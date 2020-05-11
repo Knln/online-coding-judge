@@ -1,6 +1,3 @@
-import sys
-import itertools
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, x, next=None):

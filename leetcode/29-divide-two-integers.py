@@ -20,7 +20,7 @@ class Solution:
         count = -1
         quotient = 0
 
-        while divisor_s < dividend_s:
+        while divisor_s <= dividend_s:
             divisor_s = divisor_s << 1
             count = count + 1
         divisor_s = divisor_s >> 1
@@ -32,7 +32,7 @@ class Solution:
             divisor_s = divisor_s >> 1
             count = count - 1
 
-        quotient = sign*(quotient)
+        quotient = sign*quotient
 
         if quotient > int_max or quotient < int_min:
             quotient = int_max

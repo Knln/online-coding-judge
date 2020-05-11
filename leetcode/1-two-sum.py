@@ -1,7 +1,5 @@
-import sys
 from collections import defaultdict
 from typing import List
-
 
 # Adds keys : values to list where key is the input and values
 # is the target - key. If we manage to find the collorary eg. 30 - 10 = 30 - 20
