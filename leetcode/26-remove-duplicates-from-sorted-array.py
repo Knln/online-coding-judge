@@ -3,18 +3,20 @@ from typing import List
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
 
-        previous = ''
-        removed_num = 0
+        slow = ''
+        deleted = 0
+        last = len(nums)
 
-        for i, num in enumerate(list(nums)):
-            if num == previous:
-                nums.pop(i-removed_num)
-                removed_num = removed_num + 1
-            previous = num
+        for i in range(0, last):
+            if nums[i-deleted] == slow:
+                del nums[i-deleted]
+                deleted += 1
 
-        return i-removed_num+1
+            slow = nums[i-deleted]
+
+        return nums
 
 if __name__ == '__main__':
     solution = Solution()
     print("{}".format(solution.removeDuplicates([1,1,2])))
-    print("{}".format(solution.removeDuplicates([0,1,2,2,3,3,4,4,4,4,4,5])))
+    print("{}".format(solution.removeDuplicates([0,0,1,1,2,2,3,3,4,4,4,4,4,5])))

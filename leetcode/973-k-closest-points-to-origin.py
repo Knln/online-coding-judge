@@ -24,7 +24,7 @@ class Solution:
             summation = self.findPythagoras(point)
             longest_point_dictionary[tuple(point)] = summation
 
-        ordered_list = sorted(longest_point_dictionary.items(), key=lambda x:x[1])
+        ordered_list = sorted(longest_point_dictionary.items(), key=lambda x: x[1])
         for i in range(0, K):
             answer.append(list(ordered_list[i][0]))
 

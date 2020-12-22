@@ -19,7 +19,7 @@ class Solution:
             else:
                 word_frequency[word.lower()] = 1
 
-        tuple_of_words = sorted(word_frequency.items(), key=lambda x:x[1], reverse=True)
+        tuple_of_words = sorted(word_frequency.items(), key=lambda x: x[1], reverse=True)
 
         for word in tuple_of_words:
             if word[0] in banned:
