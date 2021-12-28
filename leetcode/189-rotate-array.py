@@ -8,7 +8,7 @@ class Solution:
         """
         right = len(nums) - k
         print(nums[:right-1:-1])
-        nums[:] = nums[:right]+ nums[:right-1:-1]
+        nums = nums[:right-1:-1] + nums[:right]
         print(nums)
 
 

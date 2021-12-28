@@ -18,20 +18,25 @@ class Solution:
         if not isinstance(s, str) or s == '':
             return ''
 
-        matrix = [[None for i in range(len(s))] for j in range(len(s))]
+        matrix = [[False for i in range(len(s))] for j in range(len(s))]
+        longest = 1
+        longest_string = s[0]
 
-        for j in range(len(s)):
-            for i in range(j, len(s)):
-                print(i)
-                if i == j:
-                    matrix[i][j] = True
-                elif i-1 == j:
-                    matrix[i][j] = (s[i] == s[j])
-                else:
-                    matrix[i][j] = (matrix[j+1][i-1] and s[i] == s[j])
-        print(matrix)
+        for i in range(len(s)):
+            matrix[i][i] = True
 
-        return ''
+        for start in range(len(s)-1, -1, -1):
+            for end in range(start+1, len(s)):
+                print(end)
+
+                if s[start] == s[end]:
+                    if end - start == 1 or matrix[start+1][end-1]:
+                        matrix[start][end] = True
+                        if max(longest, end-start+1) != longest:
+                            longest_string = s[start:end+1]
+                            longest = max(longest, end - start + 1)
+        return longest_string
+
 if __name__ == "__main__":
     solution = Solution()
-    print("{}".format(solution.longestPalindrome('abacdfgdcaba')))
+    print("{}".format(solution.longestPalindrome('abacdfgababa')))
